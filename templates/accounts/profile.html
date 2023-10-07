@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+{{user.username}}
+{% endblock %}
+{% block content %}
+<div class="max-w 4xl mx-auto bg-gray-100 p-6">
+    <div class="max-w-md mx-auto shadow-2xl p-4 rounded-lg bg-white">
+        {% if user.profile %}
+        <img src="{{ user.profile.photo.url }}" alt="" class="mx-auto w-64 h-64 rounded-full object-cover object-center">
+        {% endif %}
+        <h2 class="text-4xl text-center font-semibold text-gray-950 ">{{user.username | title}}</h2>
+        <p class="text-gray-500 text-xl text-center">{{user.email}}</p>
+        
+        <hr class="border w-full border-gray-200">
+         <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-2">
+                {% for field in profile_form %}
+                <label class="text-xl text-gray-500">{{field.label_tag}}</label>
+                {{field}}
+                {% endfor %}
+            </div>
+            <div class="mb-2">
+                {% for field in user_form %}
+                <label class="text-xl text-gray-500">{{field.label_tag}}</label>
+                {{field}}
+                {% endfor %}
+            </div>
+            
+            <div class="flex justify-around items-center w-full">
+                <input type="submit" value="save" class="px-6 py-4 rounded-lg inline-flex bg-blue-500 hover:bg-blue-700 text-white font-semibold text-xl">
+                <a href="{% url 'list' %}" class="text-xl px-6 py-4 rounded-lg inline-flex text-gray-600 border border-gray-600 hover:bg-slate-200 ">cancel</a>
+    
+            </div>
+            
+         </form>
+        
+    </div>
+    
+</div>
+{% endblock %}

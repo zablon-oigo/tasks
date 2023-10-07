@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+{{task.title}}
+{% endblock %}
+{% block content %}
+<div class="max-w 4xl mx-auto bg-gray-100 p-6">
+    <div class="max-w-md mx-auto shadow-2xl p-4 rounded-lg bg-white">
+        <h2 class="text-4xl text-center font-semibold text-gray-950">{{task.title}}</h2>
+
+        <p class="text-xl text-gray-500">{{task.body}}</p>
+        <div class="flex items-center justify-around">
+            <div class="">
+                <a href="{% url 'task_complete' task.id %}" class="px-2 py-2 rounded-lg inline-flex text-white {% if task.status == 'Completed' %} bg-green-500 hover:bg-green-700{% else %} bg-yellow-500 hover:bg-yellow-700{% endif %}">{{task.status}}</a>
+            </div>
+            <div class="">
+                <a href="{% url 'update' task.id %}" class="px-2 py-2 rounded-lg inline-flex text-gray-600 border border-gray-600 hover:bg-slate-200 ">update</a>
+                <a href="{% url 'delete' task.id %}" class="px-2 py-2 rounded-lg inline-flex text-white bg-red-500 hover:bg-red-700">Delete</a>
+
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

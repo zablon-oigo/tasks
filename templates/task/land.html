@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+<div class="max-w-4xl bg-gray-100 mx-auto mb-4">
+    <div class="bg-white ">
+        <div class="flex items-center justify-between  flex-col-reverse sm:flex-row">
+            <div class="w-full sm:w-1/2">
+                <h2 class=" text-6xl text-center sm:text-4xl font-semibold text-gray-950">Task</h2>
+                <p class="text-2xl sm:text-center text-start mb-3">Manage your scheduled <span class="text-red-500 font-extrabold">task</span> better....
+                    <!-- <hr class="border border-gray-400 w-1/4 sm:w-20 my-4 "> -->
+                </p>
+                
+                <div class="m-4">
+                    <a href="{% url 'create' %}" class=" text-white bg-red-500 hover:bg-red-700 rounded-lg px-4 py-4 text-center">Get started</a>
+                </div>
+                
+            </div>
+            {% load static %}
+            <img src="{% static 'image/hero.jpg' %}" alt="hero" class="w-full h-80 object-center object-cover">
+        </div>
+    </div>
+</div>
+
+{% endblock %}

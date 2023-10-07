@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+List
+{% endblock %}
+{% block content %}
+<div class="max-w-4xl mx-auto bg-gray-100 mb-4">
+    {% if tasks %}
+    <div class="p-6 ">
+        <h2 class="text-4xl text-center font-semibold text-gray-950">My Task</h2>
+        <div class=" grid grid-rows-1 sm:grid-cols-3 gap-4 w-full my-4 place-content-center">
+           {% for task in tasks %}
+           <div class="max-w-xs  bg-white border-l-4 border-solid border-red-500 rounded-lg px-6 py-6 shadow-2xl">
+            <a href="{{task.get_absolute_url}}">
+                <h2 class="{% if task.status == 'Completed' %} line-through text-3xl font-semibold text-center {%else%}text-3xl font-semibold text-center {% endif %}"> {{task.title}}</h2>
+                <!-- <p class="text-xl">{{task.body}}</p> -->
+            </a>
+          
+           </div>
+           {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <div class="bg-white ">
+        <div class="flex items-center justify-between  flex-col-reverse sm:flex-row">
+            <div class="w-full sm:w-1/2">
+                <h2 class=" text-6xl text-center sm:text-4xl font-semibold text-gray-950">Task</h2>
+                <p class="text-2xl sm:text-center text-start mb-3">Manage your scheduled <span class="text-red-500 font-extrabold">task</span> better....
+                    <!-- <hr class="border border-gray-400 w-1/4 sm:w-20 my-4 "> -->
+                </p>
+                
+                <div class="m-4">
+                    <a href="{% url 'create' %}" class=" text-white bg-red-500 hover:bg-red-700 rounded-lg px-4 py-4 text-center">Get started</a>
+                </div>
+                
+            </div>
+            {% load static %}
+            <img src="{% static 'image/hero.jpg' %}" alt="hero" class="w-full h-80 object-center object-cover">
+        </div>
+    </div>
+    {% endif %}
+    
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+{% if id %}Update {% else %}Create{% endif %}
+{% endblock %}
+{% block content %}
+<div class="max-w 4xl mx-auto bg-gray-100 p-6">
+    <div class="max-w-md mx-auto shadow-2xl p-4 rounded-lg bg-white">
+        <h2 class="text-4xl text-center font-semibold text-gray-950">{% if id %}Update {% else %}Create{% endif %}Task</h2>
+        <div class="max-w-xs mx-auto">
+            <form action="." method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="mb-2">
+                    <label for="" class="text-xl text-gray-950">{{field.label_tag}}</label>
+                    {{field}}
+                </div>
+                {% endfor %}
+                <input type="submit" value="Submit" class="bg-blue-500 hover:bg-blue-700 text-white font-medium rounded-lg w-full px-6 py-4">
+            </form>
+        </div>
+        
+    </div>
+    
+</div>
+{% endblock %}

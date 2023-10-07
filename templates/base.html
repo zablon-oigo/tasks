@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} | Task</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="bg-slate-50">
+   <header class="sticky text-white bg-red-500 p-6 border border-gray-200 z-10">
+    <nav class="max-w-4xl mx-auto flex items-center justify-between">
+        <div class="text-3xl"><a href="{% url 'home' %}">task</a></div>
+        {% if tasks  %}
+        <div class="">
+            
+            <a href="{% url 'create' %}" class="text-xl hover:opacity-70">Create task</a>
+        </div>
+        {% endif %}
+        <div class="space-x-6 flex items-center">
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'edit' %}" class="text-xl hover:opacity-70 ">
+                {% if user.profile %}
+                <span class="flex items-center w-full justify-center">
+        <img src="{{ user.profile.photo.url }}" alt="" class="mx-auto w-10 h-10 rounded-full object-cover object-center">
+
+                </span>
+               {% endif %}
+            </a>
+            <a href="{% url 'logout' %}" class="text-xl hover:opacity-70">Logout</a>
+            {% else %}
+            <a href="{% url 'login' %}" class="text-xl hover:opacity-70">Login</a>
+            <a href="{% url 'register' %}" class="text-xl hover:opacity-70 px-6 py-4 rounded-xl border-2 border-white">Join now</a>
+            {% endif %}
+        </div>
+    </nav>
+   </header>
+    {% block content %}
+    
+    {% endblock %}
+    <footer class="bg-red-500  p-6 text-white">
+        <div class="max-w-4xl mx-auto">
+            <div>
+                <p class="text-sm font-medium text-center ">
+                    &copy; Copyright {% now 'Y' %}
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

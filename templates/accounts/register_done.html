@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+Welcome
+{% endblock %}
+{% block content %}
+<div class="max-w-4xl mx-auto bg-gray-100 p-6">
+    <div class="my-10 max-w-md rounded-lg shadow-2xl mx-auto p-6">
+        <h2 class="text-4xl font-semibold text-gray-950 text-center">Welcome {{user.username}}</h2>
+        <hr class="mx-auto my-2 border border-gray-200 w-1/2">
+        <p class="text-xl">
+            Your account was created successfully, Please use this link to login <span class="text-green-500"><a href="{% url 'login' %}">Log in</a></span>
+        </p>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+{{task.title}}
+{% endblock %}
+{% block content %}
+<div class="max-w 4xl mx-auto bg-gray-100 p-6">
+    <div class="max-w-md mx-auto shadow-2xl p-4 rounded-lg bg-white">
+        <form action="." method="post">
+            {% csrf_token %}
+            <h2 class="text-4xl text-center  text-gray-950">Are you sure you want to delete <span class=" font-extrabold">" {{task.title}} ?"</span></h2>
+            <div class="my-4 flex items-center justify-around">
+                <a href="{{task.get_absolute_url}}" class="text-xl px-6 py-4 rounded-lg inline-flex text-gray-600 border border-gray-600 hover:bg-slate-200 ">cancel</a>
+                <input type="submit" value="submit" class="text-xl text-white px-6 py-4 rounded-lg bg-red-500 hover:bg-red-700">
+            </div>
+            
+        </form>
+        
+        
+    </div>
+    
+</div>
+{% endblock %}
