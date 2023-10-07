@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %} | Task</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endcomment %}
 </head>
 <body class="bg-slate-50">
    <header class="sticky text-white bg-red-500 p-6 border border-gray-200 z-10">
