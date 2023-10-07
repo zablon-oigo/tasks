@@ -2,7 +2,7 @@ asgiref==3.7.2
 Django
 gunicorn
 packaging==23.2
-Pillow==10.0.1
+Pillow
 sqlparse==0.4.4
 typing_extensions==4.8.0
 tzdata==2023.3
