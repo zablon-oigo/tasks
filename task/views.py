@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect, get_object_or_404
 from .models import Task
 from .forms import TaskForm
 from django.contrib.auth.decorators import login_required
-
+from django.http import Http404
 def home(request):
     return render(request,'task/land.html')
 
@@ -34,14 +34,18 @@ def create_task(request):
 @login_required      
 def update_task(request, id):
     task=get_object_or_404(Task, id=id , created_by=request.user)
-    if request.method == 'POST':
-        form=TaskForm(request.POST,instance=task)
-        if form.is_valid():
-            form.save()
-            return redirect('list' )
+    if task.status != 'Completed':
+        if request.method == 'POST':
+            form=TaskForm(request.POST,instance=task)
+            if form.is_valid():
+                form.save()
+                return redirect('list' )
+        else:
+            form=TaskForm(instance=task)    
+        return render(request, 'task/create.html',{'task':task,'id':id,'form':form})
     else:
-        form=TaskForm(instance=task)    
-    return render(request, 'task/create.html',{'task':task,'id':id,'form':form})
+        return redirect('list')
+
 @login_required
 def delete_task(request, id):
     task=get_object_or_404(Task, created_by=request.user, id=id )
