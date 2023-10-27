@@ -25,3 +25,29 @@ https://task-app-manager-jhp7.onrender.com
 ![Screenshot 2023-10-08 at 07-24-50 Read Python Lambda Function  Task](https://github.com/zablon-oigo/task_manager/assets/143833326/f4b4b20c-f7e0-4161-bfe2-7d36128e929b)
 ![Screenshot 2023-10-08 at 07-25-03 Read Python Lambda Function  Task](https://github.com/zablon-oigo/task_manager/assets/143833326/237e035d-ffa4-4f5c-8c04-45b2ac1065c8)
 ![Screenshot 2023-10-08 at 07-25-28 Go to the market Task](https://github.com/zablon-oigo/task_manager/assets/143833326/6f583e1f-b97b-451c-afbd-51ef68fcabad)
+
+
+## Run Locally
+Clone the project
+
+```bash
+  git@github.com:zablon-oigo/task_manager.git
+```
+
+Go to the project directory
+
+```bash
+  cd task
+```
+
+Install dependencies
+
+```bash
+  pip install --update pip
+```
+
+Start the server
+
+```bash
+  py manage.py runserver
+```
