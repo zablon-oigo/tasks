@@ -40,6 +40,12 @@ Go to the project directory
   cd task
 ```
 
+Start virtual environment
+
+```bash
+  py -m venv mytask
+```
+
 Install dependencies
 
 ```bash
