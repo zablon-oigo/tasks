@@ -26,6 +26,12 @@ https://task-app-manager-jhp7.onrender.com
 ![Screenshot 2023-10-08 at 07-25-03 Read Python Lambda Function  Task](https://github.com/zablon-oigo/task_manager/assets/143833326/237e035d-ffa4-4f5c-8c04-45b2ac1065c8)
 ![Screenshot 2023-10-08 at 07-25-28 Go to the market Task](https://github.com/zablon-oigo/task_manager/assets/143833326/6f583e1f-b97b-451c-afbd-51ef68fcabad)
 
+## Tech Stack
+
+**Client:** Html, Javascript, TailwindCSS
+
+**Server:** Python, Django
+
 
 ## Run Locally
 Clone the project
