@@ -8,8 +8,7 @@ In today's fast-paced world, staying organized and productive is crucial. That's
 
 ## Demo
 
-https://task-app-manager-jhp7.onrender.com
-
+[taskmanager](https://task-app-manager-jhp7.onrender.com)
 
 ## Screenshots
 
