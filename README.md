@@ -54,7 +54,7 @@ Start virtual environment
 Install dependencies
 
 ```bash
-  pip install --update pip
+  pip install -r  requirements.txt
 ```
 
 Start the server
