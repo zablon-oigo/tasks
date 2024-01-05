@@ -36,7 +36,7 @@ In today's fast-paced world, staying organized and productive is crucial. That's
 Clone the project
 
 ```bash
-  git@github.com:zablon-oigo/task_manager.git
+  git clone git@github.com:zablon-oigo/task_manager.git
 ```
 
 Go to the project directory
