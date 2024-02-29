@@ -1,5 +1,5 @@
 
-# task_manager_app
+ # task_manager_app :rocket:
 
 Streamline Your Life with the Ultimate Task Manager App.
 In today's fast-paced world, staying organized and productive is crucial. That's where our Task Manager App comes to the rescue! Designed with simplicity and efficiency in mind, our app is the perfect digital companion to help you manage your tasks, boost your productivity, and achieve your goals.
@@ -8,8 +8,7 @@ In today's fast-paced world, staying organized and productive is crucial. That's
 
 ## Demo
 
-https://task-app-manager-jhp7.onrender.com
-
+[taskmanager](https://task-app-manager-jhp7.onrender.com)
 
 ## Screenshots
 
@@ -25,3 +24,41 @@ https://task-app-manager-jhp7.onrender.com
 ![Screenshot 2023-10-08 at 07-24-50 Read Python Lambda Function  Task](https://github.com/zablon-oigo/task_manager/assets/143833326/f4b4b20c-f7e0-4161-bfe2-7d36128e929b)
 ![Screenshot 2023-10-08 at 07-25-03 Read Python Lambda Function  Task](https://github.com/zablon-oigo/task_manager/assets/143833326/237e035d-ffa4-4f5c-8c04-45b2ac1065c8)
 ![Screenshot 2023-10-08 at 07-25-28 Go to the market Task](https://github.com/zablon-oigo/task_manager/assets/143833326/6f583e1f-b97b-451c-afbd-51ef68fcabad)
+
+## Tech Stack
+
+**Client:** Html, Javascript, TailwindCSS
+
+**Server:** Python, Django
+
+
+## Run Locally
+Clone the project
+
+```bash
+  git clone git@github.com:zablon-oigo/task_manager.git
+```
+
+Go to the project directory
+
+```bash
+  cd task
+```
+
+Start virtual environment
+
+```bash
+  py -m venv mytask
+```
+
+Install dependencies
+
+```bash
+  pip install -r  requirements.txt
+```
+
+Start the server
+
+```bash
+  py manage.py runserver
+```
