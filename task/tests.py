@@ -28,3 +28,12 @@ class TaskTests(TestCase):
         self.assertEqual(self.task.created_by.username, "testuser")
         self.assertEqual(str(self.task), "New task")
         self.assertEqual(self.task.get_absolute_url(), "/detail/1/new-task/")
+
+    
+    def test_task_list_view(self):
+        self.client.login(username='testuser', password='secret')
+        response=self.client.get(reverse("list"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "New task")
+        self.assertTemplateUsed(response, "task/list.html")
+        
