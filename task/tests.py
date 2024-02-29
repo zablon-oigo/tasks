@@ -37,3 +37,12 @@ class TaskTests(TestCase):
         self.assertContains(response, "New task")
         self.assertTemplateUsed(response, "task/list.html")
         
+    
+    def test_task_detail_view(self):
+        self.client.login(username='testuser', password='secret')
+        response=self.client.get(reverse("detail", kwargs={"pk": self.task.pk, "slug": self.task.slug}))
+        no_response=self.client.get("/post/100000/")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(no_response.status_code, 404)
+        self.assertContains(response, "New task")
+        self.assertTemplateUsed(response, "task/detail.html")
