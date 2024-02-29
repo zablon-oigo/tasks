@@ -46,3 +46,17 @@ class TaskTests(TestCase):
         self.assertEqual(no_response.status_code, 404)
         self.assertContains(response, "New task")
         self.assertTemplateUsed(response, "task/detail.html")
+    
+    def test_task_create_view(self):
+        self.client.login(username='testuser', password="secret")
+        response=self.client.post(reverse("create", {
+            "title":"another task",
+            "body":"new task",
+            "slug":"another-task",
+            "created_by":self.user.pk,
+            "status":"pending"
+        }))
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Task.objects.last().title, "another task")
+        self.assertEqual(Task.objects.last().body, "new task")
