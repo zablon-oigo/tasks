@@ -4,11 +4,11 @@ from .models import Task
 from django.urls import reverse
 
 
-class TastTest(TestCase):
+class TaskTests(TestCase):
     @classmethod
-    def SetUpTestData(cls):
+    def setUpTestData(cls):
         cls.user=User.objects.create_user(
-            username='testiser',
+            username='testuser',
             email='testuser@mail.com',
             password='secret'
         )
@@ -19,3 +19,12 @@ class TastTest(TestCase):
             status='pending',
             created_by=cls.user
         )
+
+    def test_model_content(self):
+        self.assertEqual(self.task.title, "New task")
+        self.assertEqual(self.task.slug, "new-task")
+        self.assertEqual(self.task.body, "testing task app")
+        self.assertEqual(self.task.status, "pending")
+        self.assertEqual(self.task.created_by.username, "testuser")
+        self.assertEqual(str(self.task), "New task")
+        self.assertEqual(self.task.get_absolute_url(), "/detail/1/new-task/")
