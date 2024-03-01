@@ -60,3 +60,16 @@ class TaskTests(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(Task.objects.last().title, "another task")
         self.assertEqual(Task.objects.last().body, "new task")
+
+    
+    def test_task_update_view(self):
+        self.client.login(username="testuser", password="secret")
+        response=self.client.post(reverse("update", args="1"),{
+            "title":"updated task title",
+            "body":"updated task"
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Task.objects.last().title, "updated task title")
+        self.assertEqual(Task.objects.last().body, "updated task")
+        
+
