@@ -71,5 +71,10 @@ class TaskTests(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(Task.objects.last().title, "updated task title")
         self.assertEqual(Task.objects.last().body, "updated task")
-        
+
+    
+    def test_task_delete_view(self):
+        self.client.login(username="testuser", password="secret")
+        response=self.client.post(reverse("delete", args="1"))
+        self.assertEqual(response.status_code, 302)
 
